@@ -1,0 +1,84 @@
+-------------------------------------------------------------
+
+//Get All User Data
+
+query getAllUsers{
+  
+  
+  users{
+    id email firstName qoutes{
+      qoute
+    }
+  }
+
+}
+
+--------------------------------------------------------------
+
+//Get All Qoutes
+
+query getAllQoutes{
+  
+qoutes{
+  by qoute
+}
+  
+  
+}
+
+
+----------------------------------------------------------------
+
+//Get User By Id 
+
+ # Query Variable in Query for Dynamically Values 
+
+query getUserById($userID:ID!){
+
+  user(id:$userID){
+    firstName,
+    qoutes{
+      qoute
+    }
+  }
+  
+  
+}
+
+
+// Assign Value in Query Variables
+{
+
+"userID":"8712"
+
+
+}
+
+--------------------------------------------------
+
+// Get Qoute By ID !
+
+query getQouteByUser{
+  
+  iqoute(by:"4512"){
+
+    qoute
+
+  }
+  
+  
+}
+
+// request for newUser so when user is add to a Database so the response object will return (Current Entry)
+// and the Object name start with Request Name (signUpUser)  i just assign alias name (user:signUpUser{}) 
+
+signUpUser(newUser{})
+
+mutation{
+  user:signUpUser(newUser:{firstName:"Burhan",lastName:"Ali",email:"burhanali@gmail.com",password:"burhan123"}){
+    firstName id lastName email password  qoutes{
+      qoute
+    }
+    
+  }
+}

@@ -1,1 +1,1 @@
-# graphql-with-nextjs
+# GraphQL-X-NEXTJs
